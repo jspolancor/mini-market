@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import './App.scss';
 import TopBar from './components/TopBar/TopBar';
+import ProductsContainer from './components/ProductsContainer/ProductsContainer';
 import { actionCreators } from './redux/sagas/cartSaga/cartSagaSaga';
 
 function App({ setWindowWidth }) {
@@ -13,6 +14,9 @@ function App({ setWindowWidth }) {
   return (
     <div>
       <TopBar />
+      <div>
+        <ProductsContainer />
+      </div>
     </div>
   );
 }

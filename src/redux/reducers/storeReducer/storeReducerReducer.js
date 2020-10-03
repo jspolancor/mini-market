@@ -5,7 +5,6 @@ import {
     SET_ANIMATING_PRODUCT_MODAL,
     SET_SELECTED_PRODUCT_ID
 } from '../../sagas/storeSaga/storeSagaSaga';
-import { comics } from '../../../constants';
 
 export const actions = {
     SET_SELECTED_PRODUCT_ID,
@@ -20,7 +19,6 @@ export const actionCreators = {
 }
 
 export const initialState = {
-    products: comics,
     productModalOpen: false,
     animatingProductModal: false,
     selectedProductId: null,
