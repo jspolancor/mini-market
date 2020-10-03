@@ -38,14 +38,38 @@ export const initialState = {
 
 export default handleActions(
     {
-        [ADD_PRODUCT_TO_CART]: (state, action) => ({
-            ...state,
-            productsInCart: [...state.productsInCart, action.payload]
-        }),
-        [REMOVE_PRODUCT_FROM_CART]: (state, action) => ({
-            ...state,
-            productsInCart: state.productsInCart.filter(product => product.id !== action.payload)
-        }),
+        [ADD_PRODUCT_TO_CART]: (state, action) => {
+            // Check if the product is already in the cart
+            const productIndex = state.productsInCart.findIndex(product => product.id === action.payload);
+            let updatedProducts = state.productsInCart.map((product, index) => ({
+                ...product,
+                amount: index === productIndex ? product.amount + 1 : product.amount
+            }));
+
+            if(productIndex < 0) {
+                updatedProducts = [...state.productsInCart, action.payload];
+            }
+
+            return {
+                ...state,
+                productsInCart: updatedProducts,
+                total: updatedProducts.reduce((prev, current) => prev + current.amount * current.price, 0)
+            }
+        },
+        [REMOVE_PRODUCT_FROM_CART]: (state, action) => {
+            // Check if the product is already in the cart
+            const productIndex = state.productsInCart.findIndex(product => product.id === action.payload);
+            let updatedProducts = state.productsInCart.map((product, index) => ({
+                ...product,
+                amount: index === productIndex ? product.amount - 1 : product.amount
+            })).filter(product => product.amount > 0);
+
+            return {
+                ...state,
+                productsInCart: updatedProducts,
+                total: updatedProducts.reduce((prev, current) => prev + current.amount * current.price, 0)
+            }
+        },
         [SET_CART_IS_ACTIVE]: (state, action) => ({
             ...state,
             cartIsActive: action.payload

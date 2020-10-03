@@ -2,7 +2,8 @@ import cartReducerReducer, { actions, actionCreators } from './cartReducerReduce
 
 const productPayload = {
     id: 1,
-    name: 'My product'
+    amount: 1,
+    price: 10
 }
 
 it('should dispatch the ADD_PRODUCT_TO_CART action when addProductToCart() is called', () => {
@@ -24,13 +25,25 @@ it('should dispatch the SET_PROCESSING_PAYMENT action when setProcessingPayment(
 })
 
 it('should add a product to the cart', () => {
-    expect(cartReducerReducer({ productsInCart: [] }, actionCreators.addProductToCart(productPayload)))
-        .toEqual({ productsInCart: [productPayload] })
+    expect(cartReducerReducer({
+        productsInCart: [],
+        total: 0
+    }, actionCreators.addProductToCart(productPayload)))
+        .toEqual({
+            productsInCart: [productPayload],
+            total: 10
+        })
 })
 
 it('should remove a product from the cart', () => {
-    expect(cartReducerReducer({ productsInCart: [productPayload] }, actionCreators.removeProductFromCart(1)))
-        .toEqual({ productsInCart: [] })
+    expect(cartReducerReducer({
+        productsInCart: [productPayload],
+        total: 10
+    }, actionCreators.removeProductFromCart(1)))
+        .toEqual({
+            productsInCart: [],
+            total: 0
+        })
 })
 
 it('should toggle processing payments', () => {
@@ -55,7 +68,7 @@ it('should activate and deactivate the cart', () => {
 it('should open and close the modal', () => {
     expect(cartReducerReducer({ cartModalOpen: false }, actionCreators.setModalOpen(true)))
         .toEqual({ cartModalOpen: true })
-    
+
     expect(cartReducerReducer({ cartModalOpen: true }, actionCreators.setModalOpen(false)))
         .toEqual({ cartModalOpen: false })
 })
@@ -63,7 +76,7 @@ it('should open and close the modal', () => {
 it('should set the animatingCartModal variable', () => {
     expect(cartReducerReducer({ animatingCartModal: false }, actionCreators.setAnimatingModal(true)))
         .toEqual({ animatingCartModal: true })
-    
+
     expect(cartReducerReducer({ animatingCartModal: true }, actionCreators.setAnimatingModal(false)))
         .toEqual({ animatingCartModal: false })
 })
