@@ -27,12 +27,12 @@ it('should toggle the cartModal', () => {
         
     expect(iterator.next().value)
         .toEqual(put({
-            type: actions.SET_MODAL_OPEN
+            type: actions.SET_CART_MODAL_OPEN
         }));
 
     expect(iterator.next().value)
         .toEqual(put({
-            type: actions.SET_ANIMATING_MODAL,
+            type: actions.SET_ANIMATING_CART_MODAL,
             payload: true
         }));
 
@@ -41,7 +41,7 @@ it('should toggle the cartModal', () => {
 
     expect(iterator.next().value)
         .toEqual(put({
-            type: actions.SET_ANIMATING_MODAL,
+            type: actions.SET_ANIMATING_CART_MODAL,
             payload: false
         }));
 });

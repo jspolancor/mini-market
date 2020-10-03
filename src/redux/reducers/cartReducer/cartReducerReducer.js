@@ -1,7 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 import { 
-    SET_MODAL_OPEN,
-    SET_ANIMATING_MODAL,
+    SET_CART_MODAL_OPEN,
+    SET_ANIMATING_CART_MODAL,
     SET_CART_IS_ACTIVE,
     SET_WINDOW_WIDTH
 } from '../../sagas/cartSaga/cartSagaSaga';
@@ -22,8 +22,8 @@ export const actionCreators = {
     setProcessingPayment: createAction(SET_PROCESSING_PAYMENT),
     setWindowWidth: createAction(SET_WINDOW_WIDTH), // triggered by the cart sagas, used for testing
     setCartIsActive: createAction(SET_CART_IS_ACTIVE), // triggered by the cart sagas, used for testing
-    setModalOpen: createAction(SET_MODAL_OPEN), // triggered by the cart sagas, used for testing
-    setAnimatingModal: createAction(SET_ANIMATING_MODAL), // triggered by the cart sagas, used for testing
+    setModalOpen: createAction(SET_CART_MODAL_OPEN), // triggered by the cart sagas, used for testing
+    setAnimatingModal: createAction(SET_ANIMATING_CART_MODAL), // triggered by the cart sagas, used for testing
 }
 
 export const initialState = {
@@ -54,11 +54,11 @@ export default handleActions(
             ...state,
             windowWidth: action.payload
         }),
-        [SET_MODAL_OPEN]: (state, action) => ({
+        [SET_CART_MODAL_OPEN]: (state, action) => ({
             ...state,
             cartModalOpen: action.payload
         }),
-        [SET_ANIMATING_MODAL]: (state, action) => ({
+        [SET_ANIMATING_CART_MODAL]: (state, action) => ({
             ...state,
             animatingCartModal: action.payload
         }),

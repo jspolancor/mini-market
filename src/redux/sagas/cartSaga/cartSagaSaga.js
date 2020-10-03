@@ -3,23 +3,23 @@ import { createAction } from 'redux-actions';
 
 import { modalAnimationSpeed, breakpoints } from '../../../constants';
 
-export const SET_ANIMATING_MODAL = 'saga/cartSaga/SET_ANIMATING_MODAL';
-export const SET_MODAL_OPEN = 'saga/cartSaga/SET_MODAL_OPEN';
+export const SET_ANIMATING_CART_MODAL = 'saga/cartSaga/SET_ANIMATING_CART_MODAL';
+export const SET_CART_MODAL_OPEN = 'saga/cartSaga/SET_CART_MODAL_OPEN';
 export const SET_CART_IS_ACTIVE = 'saga/cartSaga/SET_CART_IS_ACTIVE';
 export const SET_WINDOW_WIDTH = 'saga/cartSaga/SET_WINDOW_WIDTH';
 export const TOGGLE_CART = 'saga/cartSaga/TOGGLE_CART';
 
 export const actions = {
-    SET_ANIMATING_MODAL,
-    SET_MODAL_OPEN,
+    SET_ANIMATING_CART_MODAL,
+    SET_CART_MODAL_OPEN,
     SET_CART_IS_ACTIVE,
     SET_WINDOW_WIDTH,
     TOGGLE_CART
 }
 
 export const actionCreators = {
-    setAnimatingModal: createAction(SET_ANIMATING_MODAL),
-    setModalOpen: createAction(SET_MODAL_OPEN),
+    setAnimatingModal: createAction(SET_ANIMATING_CART_MODAL),
+    setModalOpen: createAction(SET_CART_MODAL_OPEN),
     setCartIsActive: createAction(SET_CART_IS_ACTIVE),
     setWindowWidth: createAction(SET_WINDOW_WIDTH),
     toggleCart: createAction(TOGGLE_CART)
