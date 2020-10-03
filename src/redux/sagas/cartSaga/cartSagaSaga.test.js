@@ -1,18 +1,33 @@
-import { put, select, delay } from 'redux-saga/effects';
+import { put, select, delay, call } from 'redux-saga/effects';
 
-import { toggleModal, actions, getCartModalOpenState } from './cartSagaSaga';
+import { toggleCart, actions, getModalOnMobileState, getCartIsActiveState, toggleModal } from './cartSagaSaga';
 import { modalAnimationSpeed } from '../../../constants';
 
-it('should toggle the modal async', () => {
-    const iterator = toggleModal();
+it('should toggle the cartIsActive state', () => {
+    const iterator = toggleCart();
 
     expect(iterator.next().value)
-        .toEqual(select(getCartModalOpenState));
+        .toEqual(select(getCartIsActiveState));
 
     expect(iterator.next().value)
         .toEqual(put({
-            type: actions.SET_MODAL_OPEN,
+            type: actions.SET_CART_IS_ACTIVE,
             payload: true
+        }));
+
+    expect(iterator.next().value)
+        .toEqual(call(toggleModal));
+});
+
+it('should toggle the cartModal', () => {
+    const iterator = toggleModal(true);
+
+    expect(iterator.next().value)
+        .toEqual(select(getModalOnMobileState));
+        
+    expect(iterator.next().value)
+        .toEqual(put({
+            type: actions.SET_MODAL_OPEN
         }));
 
     expect(iterator.next().value)

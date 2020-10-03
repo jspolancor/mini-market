@@ -33,7 +33,37 @@ it('should remove a product from the cart', () => {
         .toEqual({ productsInCart: [] })
 })
 
-it('should start processing payments', () => {
+it('should toggle processing payments', () => {
     expect(cartReducerReducer({ processingPayment: false }, actionCreators.setProcessingPayment(true)))
         .toEqual({ processingPayment: true })
+    expect(cartReducerReducer({ processingPayment: true }, actionCreators.setProcessingPayment(false)))
+        .toEqual({ processingPayment: false })
+})
+
+it('should save the window width', () => {
+    expect(cartReducerReducer({ windowWidth: 0 }, actionCreators.setWindowWidth(window.innerWidth)))
+        .toEqual({ windowWidth: window.innerWidth })
+})
+
+it('should activate and deactivate the cart', () => {
+    expect(cartReducerReducer({ cartIsActive: false }, actionCreators.setCartIsActive(true)))
+        .toEqual({ cartIsActive: true })
+    expect(cartReducerReducer({ cartIsActive: true }, actionCreators.setCartIsActive(false)))
+        .toEqual({ cartIsActive: false })
+})
+
+it('should open and close the modal', () => {
+    expect(cartReducerReducer({ cartModalOpen: false }, actionCreators.setModalOpen(true)))
+        .toEqual({ cartModalOpen: true })
+    
+    expect(cartReducerReducer({ cartModalOpen: true }, actionCreators.setModalOpen(false)))
+        .toEqual({ cartModalOpen: false })
+})
+
+it('should set the animatingCartModal variable', () => {
+    expect(cartReducerReducer({ animatingCartModal: false }, actionCreators.setAnimatingModal(true)))
+        .toEqual({ animatingCartModal: true })
+    
+    expect(cartReducerReducer({ animatingCartModal: true }, actionCreators.setAnimatingModal(false)))
+        .toEqual({ animatingCartModal: false })
 })

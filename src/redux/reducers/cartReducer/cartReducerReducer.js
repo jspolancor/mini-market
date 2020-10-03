@@ -1,5 +1,10 @@
 import { createAction, handleActions } from 'redux-actions';
-import { SET_MODAL_OPEN, SET_ANIMATING_MODAL } from '../../sagas/cartSaga/cartSagaSaga';
+import { 
+    SET_MODAL_OPEN,
+    SET_ANIMATING_MODAL,
+    SET_CART_IS_ACTIVE,
+    SET_WINDOW_WIDTH
+} from '../../sagas/cartSaga/cartSagaSaga';
 
 const ADD_PRODUCT_TO_CART = 'cartReducer/ADD_PRODUCT_TO_CART';
 const REMOVE_PRODUCT_FROM_CART = 'cartReducer/REMOVE_PRODUCT_FROM_CART';
@@ -14,15 +19,21 @@ export const actions = {
 export const actionCreators = {
     addProductToCart: createAction(ADD_PRODUCT_TO_CART),
     removeProductFromCart: createAction(REMOVE_PRODUCT_FROM_CART),
-    setProcessingPayment: createAction(SET_PROCESSING_PAYMENT)
+    setProcessingPayment: createAction(SET_PROCESSING_PAYMENT),
+    setWindowWidth: createAction(SET_WINDOW_WIDTH), // triggered by the cart sagas, used for testing
+    setCartIsActive: createAction(SET_CART_IS_ACTIVE), // triggered by the cart sagas, used for testing
+    setModalOpen: createAction(SET_MODAL_OPEN), // triggered by the cart sagas, used for testing
+    setAnimatingModal: createAction(SET_ANIMATING_MODAL), // triggered by the cart sagas, used for testing
 }
 
 export const initialState = {
+    cartIsActive: false,
     cartModalOpen: false,
     processingPayment: false,
     productsInCart: [],
     total: 0,
-    animatingCartModal: false
+    animatingCartModal: false,
+    windowWidth: window.innerWidth
 }
 
 export default handleActions(
@@ -35,9 +46,17 @@ export default handleActions(
             ...state,
             productsInCart: state.productsInCart.filter(product => product.id !== action.payload)
         }),
+        [SET_CART_IS_ACTIVE]: (state, action) => ({
+            ...state,
+            cartIsActive: action.payload
+        }),
+        [SET_WINDOW_WIDTH]: (state, action) => ({
+            ...state,
+            windowWidth: action.payload
+        }),
         [SET_MODAL_OPEN]: (state, action) => ({
             ...state,
-            cartModalOpen: action.payload || !state.cartModalOpen
+            cartModalOpen: action.payload
         }),
         [SET_ANIMATING_MODAL]: (state, action) => ({
             ...state,
