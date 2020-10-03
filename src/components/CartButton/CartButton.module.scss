@@ -1,0 +1,26 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+
+.container {
+    background: $marvel-red;
+    color: $white;
+    border-radius: $border-radius;
+    transition: $transition; 
+
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-weight: bold;
+    height: 2rem;
+    padding: 0.3rem;
+
+    &:hover {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+}
+
+.icon {
+    width: 2rem;
+    margin-right: 0.2rem;
+}

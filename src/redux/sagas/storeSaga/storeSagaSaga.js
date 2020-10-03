@@ -19,7 +19,7 @@ export const actionCreators = {
 }
 
 export const getProductModalOnMobileState = state => {
-    return state.storeReducer.selectedProductId && state.storeReducer.windowWidth <= breakpoints.mobile
+    return state.storeReducer.selectedProductId && state.cartReducer.windowWidth <= breakpoints.mobile
 }
 
 export function* watchSetSelectedProductId() {

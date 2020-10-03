@@ -2,6 +2,7 @@ import { takeEvery, put, delay, select, call } from 'redux-saga/effects';
 import { createAction } from 'redux-actions';
 
 import { modalAnimationSpeed, breakpoints } from '../../../constants';
+import { toggleProductModal } from '../storeSaga/storeSagaSaga';
 
 export const SET_ANIMATING_CART_MODAL = 'saga/cartSaga/SET_ANIMATING_CART_MODAL';
 export const SET_CART_MODAL_OPEN = 'saga/cartSaga/SET_CART_MODAL_OPEN';
@@ -35,7 +36,8 @@ export function* watchCartIsActive() {
 }
 
 export function* watchWindowWidth() {
-    yield takeEvery(SET_WINDOW_WIDTH, toggleModal)
+    yield takeEvery(SET_WINDOW_WIDTH, toggleModal);
+    yield takeEvery(SET_WINDOW_WIDTH, toggleProductModal);
 }
 
 /**
