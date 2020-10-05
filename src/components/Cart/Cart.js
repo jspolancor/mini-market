@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import CartStyles from './Cart.module.scss'
 import CartItem from '../CartItem/CartItem';
+import WompiWidget from '../WompiWidget/WompiWidget';
 
 const Cart = ({ total, productsInCart }) => {
     return (
@@ -17,6 +18,9 @@ const Cart = ({ total, productsInCart }) => {
             </div>
             <div className={CartStyles.total}>
                 <p>Total: <strong>${total}</strong></p>
+            </div>
+            <div className={CartStyles.wompi}>
+                <WompiWidget />
             </div>
         </div>
     )

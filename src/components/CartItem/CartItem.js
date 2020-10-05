@@ -9,7 +9,7 @@ const CartItem = ({ image, amount }) => {
             <div className={CartItemStyles.amount}>
                 {amount}
             </div>
-            <img src={image} className={CartItemStyles.image} />
+            <img src={image} className={CartItemStyles.image} alt="preview" />
         </div>
     )
 }
