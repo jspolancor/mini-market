@@ -7,9 +7,10 @@
     width: 100vw;
     top: 0;
     left: 0;
-    opacity: 0;
+    opacity: 1;
     pointer-events: all;
     transition: $transition;
+    background: $white;
 }
 
 .hidden {
@@ -19,10 +20,17 @@
 
 .header {
     height: 2rem;
-    padding: 0.5rem;
+    padding: 2rem;
+    color: $white;
+    background-color: $marvel-red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .content {
-    height: calc(100vh - 2rem);
+    height: calc(100vh - 8rem);
     overflow-y: auto;
+    padding: 2rem;
 }
