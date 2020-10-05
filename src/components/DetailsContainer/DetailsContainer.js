@@ -10,10 +10,13 @@ const DetailsContainer = ({
 }) => {
     return (
         <div className={DetailsContainerStyles.container}>
-            {(!cartIsActive && !selectedProductId) && 
-                <p className="info">Please choose a product on the left</p>
-            }
-            {(selectedProductId && !cartIsActive) && <ActiveProduct />}
+            <h2 className={DetailsContainerStyles.title}>Title</h2>
+            <div className={DetailsContainerStyles.content}>
+                {(!cartIsActive && !selectedProductId) && 
+                    <p className="info">Please choose a product on the left</p>
+                }
+                {(selectedProductId && !cartIsActive) && <ActiveProduct />}
+            </div>
         </div>
     )
 }

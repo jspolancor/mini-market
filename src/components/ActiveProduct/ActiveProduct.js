@@ -26,7 +26,6 @@ const ActiveProduct = ({
 
     return (
         <div className={ActiveProductStyles.container}>
-            <h2>Product</h2>
             <div className={ActiveProductStyles.product}>
                 <ProductCard handleClick={() => false} product={selectedProduct}/>
             </div>

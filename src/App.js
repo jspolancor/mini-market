@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import AppStyles from './App.module.scss';
 import TopBar from './components/TopBar/TopBar';
-import Modal from './components/Modal/Modal';
+import Modals from './components/Modals/Modals';
 import ProductsContainer from './components/ProductsContainer/ProductsContainer';
 import { actionCreators } from './redux/sagas/cartSaga/cartSagaSaga';
 import DetailsContainer from './components/DetailsContainer/DetailsContainer';
@@ -29,15 +29,14 @@ function App({ setWindowWidth, windowWidth }) {
           </div>
         }
       </div>
-      <Modal title={'asdlfkj'} open={true} onClose={() => console.log('close')}>
-        <p>I'm Slim Shady, yes, I'm the real Shady. All you other Slim Shadys are just imitating. So won't the real Slim Shady please stand up. Please stand up, please stand up?. 'Cause I'm Slim Shady, yes, I'm the real Shady. All you other Slim Shadys are just imitating. So won't the real Slim Shady please stand up. Please stand up, please stand up?</p>
-      </Modal>
+      <Modals />
     </div>
   );
 }
 
 const mapStateToProps = ({ cartReducer }) => ({
-  windowWidth: cartReducer.windowWidth
+  windowWidth: cartReducer.windowWidth,
+  cartModalOpen: cartReducer.cartModalOpen
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

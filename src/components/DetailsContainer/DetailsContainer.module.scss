@@ -1,4 +1,17 @@
+@import '../../styles/variables.scss';
+@import '../../styles/colors.scss';
+
 .container {
     display: flex;
     flex-direction: column;
+}
+
+.title {
+    margin: 1rem;
+    border-bottom: solid $marvel-red 1px;
+    height: $title-height;
+}
+
+.content {
+    padding: 1rem;
 }
