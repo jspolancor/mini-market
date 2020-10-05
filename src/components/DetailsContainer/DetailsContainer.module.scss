@@ -1,5 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../../styles/colors.scss';
+@import '../../styles/mixins.scss';
 
 .container {
     display: flex;
@@ -7,9 +8,7 @@
 }
 
 .title {
-    margin: 1rem;
-    border-bottom: solid $marvel-red 1px;
-    height: $title-height;
+    @include title;
 }
 
 .content {

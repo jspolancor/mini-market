@@ -14,3 +14,9 @@
     font-weight: bold;
     font-size: calc(#{$size} / 2)
 }
+
+@mixin title {
+    margin: 1rem;
+    border-bottom: solid $marvel-red 1px;
+    height: $title-height;
+}

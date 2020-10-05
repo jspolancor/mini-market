@@ -9,15 +9,25 @@ const DetailsContainer = ({
     cartIsActive,
     selectedProductId,
 }) => {
+    const showInfo = !cartIsActive && !selectedProductId;
+    const showProduct = selectedProductId && !cartIsActive;
+    const showCart = cartIsActive;
+
     return (
         <div className={DetailsContainerStyles.container}>
-            <h2 className={DetailsContainerStyles.title}>Title</h2>
+            <h2 className={DetailsContainerStyles.title}>
+                {showInfo && 'Info'}
+                {showProduct && 'Product'}
+                {showCart && 'Shopping cart'}
+            </h2>
             <div className={DetailsContainerStyles.content}>
-                {(!cartIsActive && !selectedProductId) && 
-                    <p className="info">Please choose a product on the left</p>
+                {showInfo && 
+                    <p className="info">
+                        Please choose a product on the left
+                    </p>
                 }
-                {(selectedProductId && !cartIsActive) && <ActiveProduct />}
-                {cartIsActive && <Cart />}
+                {showProduct && <ActiveProduct />}
+                {showCart && <Cart />}
             </div>
         </div>
     )
