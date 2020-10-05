@@ -2,10 +2,16 @@
 
 .grid {
     display: flex;
+    padding-top: $top-bar-height;
+
+    @media(min-width: $mobile-breakpoint) {
+        padding-top: 0;
+    }
 }
 
 .leftColumn {
     width: 100%;
+
     @media(min-width: $mobile-breakpoint) {
         width: 65%;
     }

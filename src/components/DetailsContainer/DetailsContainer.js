@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import DetailsContainerStyles from './DetailsContainer.module.scss';
 import ActiveProduct from '../ActiveProduct/ActiveProduct';
+import Cart from '../Cart/Cart';
 
 const DetailsContainer = ({ 
     cartIsActive,
@@ -16,6 +17,7 @@ const DetailsContainer = ({
                     <p className="info">Please choose a product on the left</p>
                 }
                 {(selectedProductId && !cartIsActive) && <ActiveProduct />}
+                {cartIsActive && <Cart />}
             </div>
         </div>
     )

@@ -11,6 +11,7 @@
     pointer-events: all;
     transition: $transition;
     background: $white;
+    z-index: $z-index-permanent;
 }
 
 .hidden {

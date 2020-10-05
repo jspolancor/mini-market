@@ -7,8 +7,9 @@ import { actionCreators as storeActionCreators } from '../../redux/sagas/storeSa
 
 import Modal from '../Modal/Modal';
 import ActiveProduct from '../ActiveProduct/ActiveProduct';
+import Cart from '../Cart/Cart';
 
-const Modals = ({ setSelectedProductId, productModalOpen, setCartIsActive, cartModalOpen}) => {
+const Modals = ({ setSelectedProductId, productModalOpen, toggleCart, cartModalOpen}) => {
     
     return (
         <>
@@ -18,8 +19,11 @@ const Modals = ({ setSelectedProductId, productModalOpen, setCartIsActive, cartM
                 title="Product detail">
                 <ActiveProduct />
             </Modal>
-            <Modal onClose={() => setCartIsActive(false)} open={cartModalOpen}>
-                cart
+            <Modal
+                onClose={toggleCart}
+                open={cartModalOpen}
+                title="Shopping cart">
+                <Cart />
             </Modal>
         </>
     )
@@ -32,7 +36,7 @@ const mapStateToProps = ({ cartReducer, storeReducer }) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     setSelectedProductId: storeActionCreators.setSelectedProductId,
-    setCartIsActive: cartActionCreators.setCartIsActive,
+    toggleCart: cartActionCreators.toggleCart,
 }, dispatch);
 
 

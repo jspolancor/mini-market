@@ -1,0 +1,16 @@
+@import './variables.scss';
+@import './colors.scss';
+
+@mixin amount($size) {
+    background: #e10000;
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: calc(#{$size} / 2)
+}

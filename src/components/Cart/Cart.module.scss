@@ -1,0 +1,16 @@
+@import '../../styles/colors.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.total{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    
+    strong {
+        color: $marvel-red;
+    }
+}

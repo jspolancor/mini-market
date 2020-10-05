@@ -8,6 +8,16 @@
     background: $marvel-yellow;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    box-sizing: border-box;
+    z-index: $z-index-fixed;
+
+    @media(min-width: $mobile-breakpoint) {
+        position: relative;
+    }
+    
 }
 
 .logo {
