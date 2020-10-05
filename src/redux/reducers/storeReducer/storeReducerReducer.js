@@ -21,7 +21,7 @@ export const actionCreators = {
 export const initialState = {
     productModalOpen: false,
     animatingProductModal: false,
-    selectedProductId: null,
+    selectedProductId: false,
 }
 
 export default handleActions(
