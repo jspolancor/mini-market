@@ -18,7 +18,7 @@ const Modal = ({ onClose, open, title, children }) => {
         <div className={modalClasses}>
             <div className={ModalStyles.header} >
                 <h2>{title}</h2>
-                <button className="close-button" onClick={onClose}>X</button>
+                <button className="close-button" onClick={onClose}>x</button>
             </div>
             <div className={ModalStyles.content} >
                 {children}

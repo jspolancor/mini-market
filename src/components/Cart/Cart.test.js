@@ -7,7 +7,7 @@ import createReduxStore from '../../redux/store';
 import Cart from './Cart';
 import CartItem from '../CartItem/CartItem';
 
-import { comics } from '../../constants';
+import { comics } from '../../constants/comics';
 
 const { store } = createReduxStore('tests', {
   cartReducer: {

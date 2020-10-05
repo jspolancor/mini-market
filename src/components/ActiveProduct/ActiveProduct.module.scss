@@ -1,5 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../../styles/colors.scss';
+@import '../../styles/mixins.scss';
 
 .container {
     display: flex;
@@ -16,8 +17,33 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    align-items: center;
+    border-bottom: solid $marvel-red 1px;
+}
+
+.actionsButtons {
+    width: 8rem;
+}
+
+.info {
+    font-size: 1.3rem;
+    flex: 1;
+
+    strong {
+        color: $marvel-red;
+        margin-left: 1rem;
+    }
 }
 
 .description {
     padding: 1rem;
+    border-bottom: solid $marvel-red 1px;
+}
+
+.remove {
+    @include button(true);
+}
+
+.add {
+    @include button(false);
 }

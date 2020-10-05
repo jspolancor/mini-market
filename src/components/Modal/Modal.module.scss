@@ -1,5 +1,6 @@
 @import '../../styles/colors.scss';
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .container {
     position: fixed;
@@ -28,6 +29,10 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+
+    button {
+        @include button(true);
+    }
 }
 
 .content {

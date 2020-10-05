@@ -5,7 +5,7 @@ import ProductsContainer from './ProductsContainer';
 import createReduxStore from '../../redux/store';
 
 import ProductCard from '../ProductCard/ProductCard';
-import { comics } from '../../constants';
+import { comics } from '../../constants/comics';
 
 const { store } = createReduxStore();
 

@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
 
 import { actionCreators } from '../../redux/sagas/storeSaga/storeSagaSaga';
 
 import ProductsContainerStyles from './ProductsContainer.module.scss'
 
 import ProductCard from '../ProductCard/ProductCard';
-import { comics } from '../../constants';
+import { comics } from '../../constants/comics';
 
-const ProductsContainer = ({ setSelectedProductId, productsInCart }) => {
+const ProductsContainer = ({ setSelectedProductId, productsInCart, cartIsActive }) => {
     const [extendedProducts, setExtendedProducts] = useState([]);
+    const containerClasses = classNames({ 
+        [ProductsContainerStyles.productsContainer]: true,
+        [ProductsContainerStyles.blurred]: cartIsActive
+    });
 
     useEffect(() => {
         setExtendedProducts(comics.map(product => {
@@ -27,7 +32,7 @@ const ProductsContainer = ({ setSelectedProductId, productsInCart }) => {
     return (
         <div className={ProductsContainerStyles.container}>
             <h2>Store</h2>
-            <div className={ProductsContainerStyles.productsContainer}>
+            <div className={containerClasses}>
                 {extendedProducts.map(product => 
                     <ProductCard 
                         key={product.id}
@@ -41,7 +46,8 @@ const ProductsContainer = ({ setSelectedProductId, productsInCart }) => {
 }
 
 const mapStateToProps = ({ cartReducer }) => ({
-    productsInCart: cartReducer.productsInCart
+    productsInCart: cartReducer.productsInCart,
+    cartIsActive: cartReducer.cartIsActive,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

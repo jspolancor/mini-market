@@ -9,6 +9,11 @@
     h2 {
         @include title;
     }
+
+    @media(min-width: $mobile-breakpoint) {
+        height: calc(100vh - #{$top-bar-height});
+        overflow-y: auto;
+    }
 }
 
 .productsContainer {
@@ -16,4 +21,13 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    opacity: 1;
+    transition: $transition;
+}
+
+.blurred {
+    opacity: 0.8;
+    pointer-events: none;
+    transition: 1s;
+    filter: blur(20px);
 }

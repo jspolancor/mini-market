@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import ActiveProductStyles from './ActiveProduct.module.scss';
 import { actionCreators } from '../../redux/reducers/cartReducer/cartReducerReducer';
 import ProductCard from '../ProductCard/ProductCard';
-import { comics } from '../../constants';
+import { comics } from '../../constants/comics';
 
 const ActiveProduct = ({ 
     productsInCart,
@@ -27,16 +27,26 @@ const ActiveProduct = ({
     return (
         <div className={ActiveProductStyles.container}>
             <div className={ActiveProductStyles.product}>
-                <ProductCard handleClick={() => false} product={selectedProduct}/>
+                <ProductCard
+                    handleClick={() => false}
+                    product={selectedProduct} />
             </div>
             <div className={ActiveProductStyles.actions}>
-                <div className={ActiveProductStyles.actionsButtons}>
+                <p className={ActiveProductStyles.info}>
                     <span>{selectedProduct.name}</span>
                     <strong>${selectedProduct.price}</strong>
-                </div>
+                </p>
                 <div className={ActiveProductStyles.actionsButtons}>
-                    <button className="remove" onClick={() => removeProductFromCart(selectedProduct.id)}>-</button>
-                    <button className="add" onClick={() => addProductToCart(selectedProduct)}>+</button>
+                    <button
+                        className={ActiveProductStyles.remove}
+                        onClick={() => removeProductFromCart(selectedProduct.id)}>
+                            -
+                    </button>
+                    <button
+                        className={ActiveProductStyles.add}
+                        onClick={() => addProductToCart(selectedProduct)}>
+                            +
+                    </button>
                 </div>
             </div>
             <div className={ActiveProductStyles.description}>
