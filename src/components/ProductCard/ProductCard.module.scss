@@ -2,16 +2,21 @@
 @import '../../styles/colors.scss';
 
 .container {
-    max-width: 12rem;
+    max-width: 100%;
     margin: 1rem;
     box-shadow: $box-shadow;
     position: relative;
     transition: $transition;
     cursor: pointer;
+    display: flex;
     
     &:hover {
         transform: scale(1.01);
         box-shadow: $box-shadow-raised;
+    }
+
+    @media(min-width: $mobile-breakpoint) {
+        max-width: 20rem;
     }
 }
 

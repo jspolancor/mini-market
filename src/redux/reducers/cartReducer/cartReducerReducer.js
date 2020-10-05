@@ -40,14 +40,17 @@ export default handleActions(
     {
         [ADD_PRODUCT_TO_CART]: (state, action) => {
             // Check if the product is already in the cart
-            const productIndex = state.productsInCart.findIndex(product => product.id === action.payload);
+            const productIndex = state.productsInCart.findIndex(product => product.id === action.payload.id);
             let updatedProducts = state.productsInCart.map((product, index) => ({
                 ...product,
                 amount: index === productIndex ? product.amount + 1 : product.amount
             }));
 
             if(productIndex < 0) {
-                updatedProducts = [...state.productsInCart, action.payload];
+                updatedProducts = [...state.productsInCart, {
+                    ...action.payload,
+                    amount: 1
+                }];
             }
 
             return {

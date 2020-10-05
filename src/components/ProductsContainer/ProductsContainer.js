@@ -27,7 +27,6 @@ const ProductsContainer = ({ setSelectedProductId, productsInCart }) => {
     return (
         <div className={ProductsContainerStyles.container}>
             <h2>Store</h2>
-            <hr />
             <div className={ProductsContainerStyles.productsContainer}>
                 {extendedProducts.map(product => 
                     <ProductCard 

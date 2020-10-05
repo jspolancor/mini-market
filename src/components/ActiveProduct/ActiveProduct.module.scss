@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
 @import '../../styles/variables.scss';
+@import '../../styles/colors.scss';
 
 .container {
     display: flex;
@@ -12,9 +12,18 @@
     }
 }
 
-.productsContainer {
+.product {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.description {
+    padding: 1rem;
 }

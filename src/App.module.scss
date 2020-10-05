@@ -1,0 +1,16 @@
+@import './styles/variables.scss';
+
+.grid {
+    display: flex;
+}
+
+.leftColumn {
+    width: 100%;
+    @media(min-width: $mobile-breakpoint) {
+        width: 65%;
+    }
+}
+
+.rightColumn {
+    flex: 1;
+}

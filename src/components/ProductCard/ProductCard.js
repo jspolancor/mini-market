@@ -5,7 +5,7 @@ import ProductCardStyles from './ProductCard.module.scss'
 const ProductCard = ({ product, handleClick }) => {
     return (
         <div className={ProductCardStyles.container} onClick={handleClick}>
-            {true && 
+            {product.amount > 0 && 
                 <small className={ProductCardStyles.amount}>
                     {product.amount}
                 </small>
