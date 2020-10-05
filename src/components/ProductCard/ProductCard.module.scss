@@ -12,12 +12,13 @@
     display: flex;
     
     &:hover {
-        transform: scale(1.01);
+        transform: scale(1.01) rotate(-1.5deg);
         box-shadow: $box-shadow-raised;
     }
 
     @media(min-width: $mobile-breakpoint) {
-        max-width: 20rem;
+        // 100% minus margins
+        max-width: calc((100% - 6rem) / 3);
     }
 }
 

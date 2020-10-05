@@ -30,7 +30,7 @@ const ProductsContainer = ({ setSelectedProductId, productsInCart, cartIsActive 
     }, [productsInCart]);
 
     return (
-        <div className={ProductsContainerStyles.container}>
+        <section className={ProductsContainerStyles.container}>
             <h2>Store</h2>
             <div className={containerClasses}>
                 {extendedProducts.map(product => 
@@ -41,7 +41,7 @@ const ProductsContainer = ({ setSelectedProductId, productsInCart, cartIsActive 
                     />
                 )}
             </div>
-        </div>
+        </section>
     )
 }
 

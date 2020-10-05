@@ -19,7 +19,8 @@
 @mixin title {
     margin: 1rem;
     border-bottom: solid $marvel-red 1px;
-    height: $title-height;
+    max-height: $title-height;
+    padding-bottom: 1rem;
 }
 
 @mixin button($secondary) {

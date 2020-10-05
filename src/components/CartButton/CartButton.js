@@ -9,18 +9,16 @@ import CartButtonStyles from './CartButton.module.scss'
 
 const CartButton = ({ total, handleClick, cartIsActive }) => {
     return (
-        <div>
-            <button onClick={handleClick} className={CartButtonStyles.container}>
-                <div className={CartButtonStyles.openButton}>
-                    <img
-                        src={cartIcon}
-                        alt="View Cart" 
-                        className={CartButtonStyles.icon} />
-                    <span>${total}</span>
-                </div>
-                {cartIsActive && <div className={CartButtonStyles.closeButton}>X</div>}
-            </button>
-        </div>
+        <button onClick={handleClick} className={CartButtonStyles.container}>
+            <div className={CartButtonStyles.openButton}>
+                <img
+                    src={cartIcon}
+                    alt="View Cart" 
+                    className={CartButtonStyles.icon} />
+                <span>${total}</span>
+            </div>
+            {cartIsActive && <div className={CartButtonStyles.closeButton}>X</div>}
+        </button>
     )
 }
 

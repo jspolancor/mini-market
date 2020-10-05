@@ -14,7 +14,7 @@ const DetailsContainer = ({
     const showCart = cartIsActive;
 
     return (
-        <div className={DetailsContainerStyles.container}>
+        <aside className={DetailsContainerStyles.container}>
             <h2 className={DetailsContainerStyles.title}>
                 {showInfo && 'Info'}
                 {showProduct && 'Product'}
@@ -29,7 +29,7 @@ const DetailsContainer = ({
                 {showProduct && <ActiveProduct />}
                 {showCart && <Cart />}
             </div>
-        </div>
+        </aside>
     )
 }
 

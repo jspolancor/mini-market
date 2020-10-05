@@ -25,7 +25,7 @@ const ActiveProduct = ({
     }, [selectedProductId, productsInCart])
 
     return (
-        <div className={ActiveProductStyles.container}>
+        <figure className={ActiveProductStyles.container}>
             <div className={ActiveProductStyles.product}>
                 <ProductCard
                     handleClick={() => false}
@@ -49,10 +49,10 @@ const ActiveProduct = ({
                     </button>
                 </div>
             </div>
-            <div className={ActiveProductStyles.description}>
+            <figcaption className={ActiveProductStyles.description}>
                 <p>{selectedProduct.description}</p>
-            </div>
-        </div>
+            </figcaption>
+        </figure>
     )
 }
 

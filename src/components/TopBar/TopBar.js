@@ -11,14 +11,14 @@ import TopBarStyles from './TopBar.module.scss';
 
 const TopBar = ({ toggleCart, setSelectedProductId }) => {
     return (
-        <div className={TopBarStyles.container}>
+        <header className={TopBarStyles.container}>
             <img
                 src={logo}
                 alt="Marvel comics" 
                 className={TopBarStyles.logo}
                 id="logo" />
             <CartButton handleClick={toggleCart} />
-        </div>
+        </header>
     )
 }
 
