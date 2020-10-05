@@ -12,13 +12,13 @@ describe('<CartButton />', () => {
 
   it('should show icon and price', () => {
     const wrapper = mount(
-        <Provider store={store}>
-            <CartButton />
-        </Provider>
+      <Provider store={store}>
+        <CartButton />
+      </Provider>
     );
     const icon = wrapper.find('img');
     const price = wrapper.find('span');
-    
+
     expect(icon.length).toBe(1);
     expect(price.length).toBe(1);
   });
@@ -27,13 +27,13 @@ describe('<CartButton />', () => {
     const handleClick = jest.fn();
 
     const wrapper = mount(
-        <Provider store={store}>
-            <CartButton handleClick={handleClick} />
-        </Provider>
+      <Provider store={store}>
+        <CartButton handleClick={handleClick} />
+      </Provider>
     );
 
     const button = wrapper.find('button');
-    
+
     button.simulate('click');
     expect(handleClick).toBeCalled();
   });

@@ -8,7 +8,7 @@ it('should toggle the product modal', () => {
 
     expect(iterator.next().value)
         .toEqual(select(getProductModalOnMobileState));
-        
+
     expect(iterator.next().value)
         .toEqual(put({
             type: actions.SET_PRODUCT_MODAL_OPEN

@@ -7,16 +7,16 @@ describe('<ProductCard />', () => {
 
   it('should show the propper ammount', () => {
     const wrapper = mount(
-            <ProductCard product={{
-                id: 1,
-                amount: 3,
-                name: '',
-                image: ''
-            }}
-            handleClick={() => false}/>
+      <ProductCard product={{
+        id: 1,
+        amount: 3,
+        name: '',
+        image: ''
+      }}
+        handleClick={() => false} />
     );
     const amount = wrapper.find('.amount');
-    
+
     expect(amount.text()).toBe('3');
   });
 
@@ -24,15 +24,15 @@ describe('<ProductCard />', () => {
     const handleClick = jest.fn();
 
     const wrapper = mount(
-        <ProductCard product={{
-            id: 1,
-            amount: 3,
-            name: '',
-            image: ''
-        }}
-        handleClick={handleClick}/>
+      <ProductCard product={{
+        id: 1,
+        amount: 3,
+        name: '',
+        image: ''
+      }}
+        handleClick={handleClick} />
     );
-    
+
     wrapper.simulate('click');
     expect(handleClick).toBeCalled();
   });

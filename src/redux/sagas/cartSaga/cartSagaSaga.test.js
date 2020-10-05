@@ -24,7 +24,7 @@ it('should toggle the cartModal', () => {
 
     expect(iterator.next().value)
         .toEqual(select(getModalOnMobileState));
-        
+
     expect(iterator.next().value)
         .toEqual(put({
             type: actions.SET_CART_MODAL_OPEN

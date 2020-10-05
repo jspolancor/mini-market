@@ -11,7 +11,7 @@ it('should dispatch the SET_SELECTED_PRODUCT_ID action when setSelectedProductId
 it('should dispatch the SET_PRODUCT_MODAL_OPEN action when setProductModalOpen() is called', () => {
     expect(actionCreators.setProductModalOpen(true))
         .toEqual({ type: actions.SET_PRODUCT_MODAL_OPEN, payload: true })
-    
+
     expect(actionCreators.setProductModalOpen(false))
         .toEqual({ type: actions.SET_PRODUCT_MODAL_OPEN, payload: false })
 })
@@ -31,7 +31,7 @@ it('should set the selected product id', () => {
 it('should open and close the product modal', () => {
     expect(storeReducerReducer({ productModalOpen: false }, actionCreators.setProductModalOpen(true)))
         .toEqual({ productModalOpen: true })
-    
+
     expect(storeReducerReducer({ productModalOpen: true }, actionCreators.setProductModalOpen(false)))
         .toEqual({ productModalOpen: false })
 })
@@ -39,7 +39,7 @@ it('should open and close the product modal', () => {
 it('should set the animatingProductModal variable', () => {
     expect(storeReducerReducer({ animatingProductModal: false }, actionCreators.setAnimatingProductModal(true)))
         .toEqual({ animatingProductModal: true })
-    
+
     expect(storeReducerReducer({ animatingProductModal: true }, actionCreators.setAnimatingProductModal(false)))
         .toEqual({ animatingProductModal: false })
 })

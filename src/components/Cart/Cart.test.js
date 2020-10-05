@@ -10,21 +10,21 @@ import CartItem from '../CartItem/CartItem';
 import { comics } from '../../constants';
 
 const { store } = createReduxStore('tests', {
-    cartReducer: {
-        productsInCart: comics
-    }
+  cartReducer: {
+    productsInCart: comics
+  }
 });
 
 describe('<Cart />', () => {
 
   it('should render the right amount of products', () => {
     const wrapper = mount(
-        <Provider store={store}>
-            <Cart />
-        </Provider>
+      <Provider store={store}>
+        <Cart />
+      </Provider>
     );
     const items = wrapper.find(CartItem);
-    
+
     expect(items.length).toBe(comics.length);
   });
 });
